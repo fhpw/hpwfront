@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-store,no-cache">
+		<meta name="Handheldfriendly" content="true">
+		<meta name="robots" content="all">
+		<title>哗!收账</title>
+		<link rel="stylesheet" href="css/default.min.css" />
+		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
+		<style>
+			body {
+				overflow: hidden;
+				margin: 0px;
+				padding: 0px;
+				font-family: 'Trebuchet MS', Helvetica, 'Microsoft YaHei', Georgia, sans-serif;
+			}
+			.background {
+				background-position: center center;
+				/*background-repeat: no-repeat;*/
+			}
+			.login {
+				background-image: url(img/sign_bg.png);
+				height: 720px;
+			}
+			.logo {
+				height: 60px;
+				width: 60px;
+			}
+			.logo-icon {
+				padding-top: 30px;
+				height: 120px;
+				width: 100%;
+				text-align: center;
+				margin-bottom: 10px;
+			}
+			.input-group {
+				height: 100px;
+				width: 100%;
+				border: 1px solid rgba(209, 223, 229, 1);
+				border-left: 0px;
+				border-right: 0px;
+				margin-bottom: 20px;
+				background-color: rgba(221, 234, 239, 1);
+			}
+			.input {
+				width: 100%;
+				line-height: 48px;
+				font-size: 16px;
+			}
+			.input > span {
+				width: 20%;
+				text-align: center;
+				display: inline-block;
+				float: left;
+				border-bottom: 1px solid rgba(209, 223, 229, 1);
+				border-right: 1px solid rgba(209, 223, 229, 1);
+			}
+			.input > input {
+				width: 80%;
+				border: 0px;
+				background-color: rgba(221, 234, 239, 1);
+				line-height: inherit;
+				padding: 0px;
+				float: left;
+				border-bottom: 1px solid rgba(209, 223, 229, 1);
+				text-indent: 0.5em;
+				color: rgba(0, 0, 0, 1);
+			}
+			.noborder > span {
+				border-bottom-width: 0px;
+			}
+			.noborder > input {
+				border-bottom-width: 0px;
+			}
+			.new-register {
+				margin-left: 5%;
+				margin-top: 10px;
+				display: inline-block;
+			}
+			.btn-block {
+				width: 90%;
+				margin-left: 5%;
+			}
+			.btn-opacity {
+				opacity: 0.65;
+				cursor: not-allowed;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="background login">
+			<div class="logo-icon">
+				<img src="img/logo.png" class="logo" />
+			</div>
+			<div class="input-group text-center">
+				<div class="input">
+					<span>+86</span>
+					<input class="txt-iphone" type="tel" id="txtIphone" placeholder="手机号" />
+				</div>
+				<div class="input noborder">
+					<span>密码</span>
+					<input class="txt-password" type="password" id="txtPassword" placeholder="密码" />
+				</div>
+			</div>
+			<button type="button" class="btn btn-info btn-block btn-opacity btn-lg" id="btnLogin">登录</button>
+			<span class="new-register"><a href="newRegister.html">新用户注册</a></span>
+		</div>
+	</body>
+	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
+	<script>
+		$(function() {
+			var $btnLogin = $('#btnLogin');
+			$('#txtIphone').focus(); //初始化的时候将焦点定位到手机号输入界面
+			//验证手机号码已经输入、密码已经输入就将按钮能点击
+			$btnLogin.on('click', function() {
+				//校验用户名密码
+				checkLogin();
+			});
+			$(document).on('keydown', function(e) {
+				if (e.keyCode == 13) { //校验回车事件
+					checkLogin();
+				}
+			});
+			$('#txtIphone').on('keypress', function() {
+				if ($(this).val()) {
+					$btnLogin.removeAttr('disabled');
+					$btnLogin.removeClass('btn-info btn-opacity').addClass('btn-primary');
+				}
+			});
+		});
+
+		function checkLogin() {
+			var iphone = $('#txtIphone').val(),
+				pw = $('#txtPassword').val();
+			if (iphone && iphone == '18600646863' && pw && pw == 123456) {
+				window.location.href = 'index.html';
+			}
+		}
+	</script>
+
+</html>

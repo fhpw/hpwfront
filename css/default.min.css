@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-body,div,img,table,tr,tbody,tfoot,td,ul,li,p,h1,h2,h3,h4,h5,dl,dt,dd,fieldset{margin:0;padding:0;border:0}
+body,div,img,table,tr,tbody,tfoot,td,ul,li,p,h1,h2,h3,h4,h5,dl,dt,dd,fieldset{margin:0;padding:0;border:0;font-family: 'Trebuchet MS', Helvetica, 'Microsoft YaHei', Georgia, sans-serif;}
 input[type="checkbox"]{margin:0;padding:0}
 input[type="button"]{cursor:pointer;}
 input:focus, a{outline:none}
@@ -56,7 +56,48 @@ input[type="checkbox"][readonly] {
 :-ms-input-placeholder { color:#e0e0e0;font-style: italic; } /* ie */
 input:-moz-placeholder { color:#e0e0e0;font-style: italic; }
 
+/**统一样式处理**/
+a,a:hover{
+	text-decoration: none;
+}
 
+/**顶部返回条样式**/
+.k-nav{
+	height: 48px;
+	width: 100%;
+	background-color: rgba(3,142,239,1);
+	background: -webkit-gradient(linear,center top,center bottom,from(rgba(3,142,239,.7)), to(rgba(3,142,239,1)));
+	background: -o-gradient(linear,center top,center bottom,from(rgba(3,142,239,.7)), to(rgba(3,142,239,1)));
+	background: -moz-gradient(linear,center top,center bottom,from(rgba(3,142,239,.7)), to(rgba(3,142,239,1)));
+	background: -ms-gradient(linear,center top,center bottom,from(rgba(3,142,239,.7)), to(rgba(3,142,239,1)));
+	background: gradient(linear,center top,center bottom,from(rgba(3,142,239,.7)), to(rgba(3,142,239,1)));
+	line-height: 100%;
+	text-align: center;
+	color: rgba(255,255,255,1);
+	font-family: 'Trebuchet MS', Helvetica, 'Microsoft YaHei', Georgia, sans-serif;
+	font-size: 16px;
+	border-bottom: 1px solid rgba(127,127,127,.5);
+}
+.k-nav a{
+	color: rgba(255,255,255,1);
+	text-decoration: none;
+}
+.k-nav a:hover{
+	text-decoration: none;
+}
+.k-nav > i,.k-nav > span{
+	line-height: 48px;
+}
+.k-nav > span{
+	display: inline-block;
+}
+.k-nav > span.left{
+	float: left;
+}
+.k-nav .text{
+	margin-left: -42px;
+}
+body { -webkit-touch-callout: none; -webkit-text-size-adjust: none; -webkit-user-select: none; -webkit-highlight: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 /*******************************************************滚动条样式	开始(2013.04.27 10:00 kong.qf摘自网络)*******************************************************/
 
 /* Turn on a 5x5 scrollbar

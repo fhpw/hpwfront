@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="misapplication-tap-highlight" content="no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<title>哗!收账</title>
+		<link rel="stylesheet" href="css/default.min.css" />
+		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<style>
+			.container-fluid {
+				margin: 0px;
+				padding: 0px;
+				overflow: auto;
+				width: 100%;
+			}
+			.search-form {
+				width: 100%;
+				border-bottom: 1px solid rgba(127, 127, 127, .5);
+				padding: 4px 5px 3px 5px;
+			}
+			.search-form input {
+				width: 100%;
+				line-height: 28px;
+				height: 28px;
+				font-size: 12px;
+			}
+			.user-info {
+				margin-top: 8px;
+				width: 100%;
+				height: 56px;
+				border-bottom: 1px solid rgba(127, 127, 127, .4);
+				padding-left: 3px;
+				padding-right: 15px;
+			}
+			.user-poto {
+				width: 20%;
+				float: left;
+				text-align: center;
+			}
+			.user-poto img {
+				width: 48px;
+				height: 48px;
+				border: 1px solid rgba(127, 127, 127, .5);
+				border-radius: 50%;
+			}
+			.user-detail {
+				width: 40%;
+				float: left;
+				padding-left: 0%;
+			}
+			.glyphicon-earphone + em {
+				color: blue;
+			}
+			.user-bill {
+				width: 35%;
+				float: left;
+				padding-left: 0%;
+				border-left: 1px solid rgba(127, 127, 127, .1);
+				padding-left: 5px;
+			}
+			.user-bill .bill-total {
+				display: inline-block;
+				width: 100%;
+				height: 28px;
+				line-height: 32px;
+				font-weight: bold;
+				font-size: 20px;
+				text-align: center;
+				margin-top: -5px;
+				margin-bottom: 5px;
+			}
+			.user-bill .bill-total sub {
+				font-size: 10px;
+				margin-right: 5px;
+				font-weight: normal;
+			}
+			.user-bill .bill-item {
+				display: inline-block;
+				width: 100%;
+				height: 40%;
+				font-size: 10px;
+				text-align: center;
+			}
+			.user-bill .bill-item em {
+				float: left;
+				width: 50%;
+				display: inline-block;
+				font-weight: normal;
+			}
+			.user-bill .bill-item sub {
+				font-size: 10px;
+			}
+			.user-detail span {
+				display: inline-block;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+				height: 22px;
+			}
+			.user-detail i {
+				width: 22px;
+				display: inline-block;
+				text-align: right;
+				float: left;
+				margin: 0px;
+				padding: 0px;
+				line-height: 100%;
+				padding-right: 6px;
+			}
+			.user-detail em {
+				display: inline-block;
+				text-align: left;
+				text-indent: 0.3em;
+				float: left;
+				margin: 0px;
+				padding: 0px;
+				line-height: 100%;
+			}
+			.menu-right {
+				width: 5%;
+				float: left;
+				line-height: 56px;
+				text-align: right;
+			}
+			.up {
+				color: rgba(255, 0, 0, 1);
+			}
+			.down {
+				color: rgba(0, 255, 0, 1);
+			}
+			ul{
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="k-nav">
+			<span class="left" style="visibility: hidden;"><a href="#"><i class="glyphicon glyphicon-menu-left"></i>返回</a></span>
+			<span class="text">哗!收账</span>
+		</div>
+		<div class="container-fluid">
+			<div class="search-form">
+				<input id="txtSearchKey" type="text" class="form-control" placeholder="输入要查找的名字" />
+			</div>
+			<div class="list-form">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li><a href="#" data-target="index.html" class="glyphicon glyphicon-home"><i>主页</i></a>
+				</li>
+				<li class="selected"><a href="#" data-target="list.html" class="glyphicon glyphicon-list"><i>列表</i></a>
+				</li>
+				<li><a href="#" data-target="calendar.html" class="glyphicon glyphicon-calendar"><i>日历</i></a>
+				</li>
+				<li><a href="#" data-target="settings.html" class="glyphicon glyphicon-cog"><i>设置</i></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<!-- 定义用户列表模板-->
+	<script id="tpl" type="text/plain">
+		<div class="user-info">
+			<span class="user-poto"><img src="{ url }" /></span>
+			<span class="user-detail"><span><i class="glyphicon glyphicon-user"></i><em>{ username }</em></span>
+			<span><i class="glyphicon glyphicon-earphone"></i><em>{ iphone }</em></span></span>
+			<span class="user-bill">
+				<span class="bill-total"><em><sub class="glyphicon glyphicon-yen"></sub>{ bill.total }</em></span>
+			<span class="bill-item">
+					<em class="up"><sub class="glyphicon glyphicon-arrow-up"></sub>{ bill.owe }</em>
+					<em class="down"><sub class="glyphicon glyphicon-arrow-down"></sub>{ bill.income }</em>
+				</span>
+			</span>
+			<span class="menu-right"><i class="glyphicon glyphicon-menu-right"></i></span>
+		</div>
+	</script>
+
+	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
+	<script src="js/fastclick/fastclick.js"></script>
+	<script src="js/lib/k-utils-fn.js"></script>
+	<script src="js/lib/k-utils-plug.js"></script>
+	<script src="js/global.js"></script>
+	<script>
+		$(function() {
+			$('.container-fluid').css({
+				'height': window.screen.height - 96 + 'px'
+			});
+			var data = getUserList(),
+				tpl = new Template($('#tpl').html()),
+				htmls = [];
+			for (var i = 0, l = data.length; i < l; i++) {
+				htmls.push('<li>' + tpl.render(data[i]) + '</li>');
+			}
+			$('.list-form ul').empty().html(htmls.join(''));
+		});
+
+		function getUserList() {
+			var r = [],
+				k = window.K,
+				owe = 0,
+				income = 0;
+			var headimgs = ['fbb.jpg', 'fsf.jpg', 'gy.jpg', 'hxm.jpg', 'jy.jpg', 'lyx.jpg', 'sc.jpg'];
+			for (var i = 0, l = 50; i < l; i++) {
+				owe = K.getRandom(0, 50000);
+				income = K.getRandom(0, 50000);
+				r.push({
+					url: 'img/headimg/' + headimgs[K.getRandomByM(0, 6)],
+					username: K.getUserName(),
+					iphone: K.getRandomPhone('###-####-####'),
+					bill: {
+						total: owe + income,
+						owe: owe,
+						income: income
+					}
+				});
+			}
+			return r;
+		}
+	</script>
+
+</html>

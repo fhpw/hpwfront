@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="misapplication-tap-highlight" content="no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<title>哗!收账</title>
+		<link rel="stylesheet" href="css/default.min.css" />
+		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<style>
+			body {
+				background-color: rgba(238, 238, 243, 1);
+			}
+			.container-fluid {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+			.user-info {
+				margin-top: 8px;
+				width: 100%;
+				height: 64px;
+				border-bottom: 1px solid rgba(127, 127, 127, .1);
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			.user-poto {
+				width: 30%;
+				height: 100%;
+				float: left;
+				text-align: center;
+			}
+			.user-poto img {
+				width: 60px;
+				height: 60px;
+				border: 1px solid rgba(127, 127, 127, .5);
+				border-radius: 3px;
+			}
+			.user-detail {
+				width: 60%;
+				float: left;
+				padding-left: 0%;
+			}
+			.user-detail span {
+				display: inline-block;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+			}
+			.user-detail i {
+				width: 50px;
+				display: inline-block;
+				text-align: right;
+				float: left;
+				margin: 0px;
+				padding: 0px;
+				line-height: 100%;
+				padding-right: 10px;
+			}
+			.user-detail em {
+				display: inline-block;
+				text-align: left;
+				text-indent: 0.3em;
+				float: left;
+				margin: 0px;
+				padding: 0px;
+				line-height: 100%;
+			}
+			.menu-right {
+				width: 10%;
+				float: left;
+				line-height: 60px;
+				text-align: right;
+			}
+			.settings {
+				margin-top: 10px;
+			}
+			.settings li {
+				display: inline-block;
+				white-space: nowrap;
+				width: 100%;
+				line-height: 100%;
+				height: 42px;
+				border-top: 1px solid rgba(216, 215, 220, 1);
+				border-bottom: 1px solid rgba(216, 215, 220, 1);
+				background-color: rgba(255, 255, 255, .8);
+			}
+			.settings .text-left {
+				line-height: 42px;
+				text-indent: 2em;
+				float: left;
+				width: 70%;
+			}
+			.settings .text-right {
+				line-height: 42px;
+				float: right;
+				width: 30%;
+				display: inline-block;
+				white-space: nowrap;
+				padding-right: 3px;
+			}
+			.slide {
+				width: 80px;
+				height: 30px;
+				margin: auto;
+				-moz-border-radius: 50px;
+				-webkit-border-radius: 50px;
+				border-radius: 50px;
+				margin-top: 6px;
+				-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.3), 0px 1px 0px rgba(255, 255, 255, 0.2), inset 1px 0px 1px rgba(0, 0, 0, 0.3), 1px 0px 0px rgba(255, 255, 255, 0.2);
+				-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.3), 0px 1px 0px rgba(255, 255, 255, 0.2), inset 1px 0px 1px rgba(0, 0, 0, 0.3), 1px 0px 0px rgba(255, 255, 255, 0.2);
+				box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.3), 0px 1px 0px rgba(255, 255, 255, 0.2), inset 1px 0px 1px rgba(0, 0, 0, 0.3), 1px 0px 0px rgba(255, 255, 255, 0.2);
+				background-color: rgba(230, 230, 230, 1);
+			}
+			.slide label {
+				float: left;
+				width: 23px;
+				height: 23px;
+				margin-top: 3px;
+				margin-left: -6px;
+				display: inline-block;
+				cursor: pointer;
+				background: #fcfff4;
+				background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+				-moz-border-radius: 50%;
+				-webkit-border-radius: 50%;
+				border-radius: 50%;
+				-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+				-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+				box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+				-moz-transition: all 0.4s ease;
+				-o-transition: all 0.4s ease;
+				-webkit-transition: all 0.4s ease;
+				transition: all 0.4s ease;
+			}
+			.slide.on {
+				background-color: rgba(55, 173, 254, 1);
+			}
+			.slide input[type=checkbox] {
+				visibility: hidden;
+				float: left;
+				width: 10px;
+			}
+			.slide input[type=checkbox]:checked + label {
+				margin-left: 43px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="k-nav">
+			<span class="left" style="visibility: hidden;"><a href="#"><i class="glyphicon glyphicon-menu-left"></i>返回</a></span>
+			<span class="text">哗!收账</span>
+		</div>
+		<div class="container-fluid">
+			<div class="user-info">
+				<span class="user-poto">
+					<img src="img/gy.jpg" />
+				</span>
+				<span class="user-detail">
+					<span><i class="glyphicon glyphicon-user"></i><em>张怡珂</em></span>
+				<span><i class="glyphicon glyphicon-earphone"></i><em>1380000000</em></span>
+				<span><i class="glyphicon glyphicon-earphone"></i><em>458390123</em></span>
+				</span>
+				<span class="menu-right"><i class="glyphicon glyphicon-menu-right"></i></span>
+			</div>
+			<div class="settings">
+				<ul>
+					<li><span class="text-left">自动上传数据</span>
+						<span class="text-right">
+							<div class="slide on">  
+						      <input type="checkbox" value="None" id="slideOne" name="check" checked />
+						      <label for="slideOne"></label>
+						    </div>
+						</span>
+					</li>
+					<li><span class="text-left">自动统计数据</span>
+						<span class="text-right">
+							<div class="slide on">  
+						      <input type="checkbox" value="None" id="slideTow" name="check" checked />
+						      <label for="slideTow"></label>
+						    </div>
+						</span>
+					</li>
+					<li>
+						<span class="text-left"><a href="help/index.html">HBuilder帮助文档</a></span>
+						<span class="text-right">
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li><a href="#" data-target="index.html" class="glyphicon glyphicon-home"><i>主页</i></a>
+				</li>
+				<li><a href="#" data-target="list.html" class="glyphicon glyphicon-list"><i>列表</i></a>
+				</li>
+				<li><a href="#" data-target="calendar.html" class="glyphicon glyphicon-calendar"><i>日历</i></a>
+				</li>
+				<li class="selected"><a href="#" data-target="settings.html" class="glyphicon glyphicon-cog"><i>设置</i></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
+	<script src="js/fastclick/fastclick.js"></script>
+	<script src="js/global.js"></script>
+	<script>
+		$(function() {
+			$('.user-info').on('click', function(e) {
+				alert('程序开发中');
+			});
+			$('.settings label').on('click', function(e) {
+				var tar = $(e.target),
+					tarFor = tar.attr('for'),
+					check = $('#' + tarFor),
+					p = $('#' + tarFor).parent();
+				check.is(":checked") ? p.removeClass('on') : p.addClass('on');
+			});
+		});
+	</script>
+
+</html>

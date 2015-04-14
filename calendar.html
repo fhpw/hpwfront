@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="misapplication-tap-highlight" content="no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<title>哗!收账</title>
+		<link rel="stylesheet" href="css/default.min.css" />
+		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<link rel="stylesheet" href="js/bootstrap/bootstrap-calendar/css/calendar.css">
+		<style>
+			body {
+				font-family: 'Trebuchet MS', Helvetica, 'Microsoft YaHei', Georgia, sans-serif;
+			}
+			#calendar {
+				/*height: 360px;*/
+				margin-top: 5px;
+			}
+			.container-fluid {
+				margin: 0px;
+				padding: 0px;
+				padding-top: 5px;
+			}
+			.input-group-addon {
+				background-color: rgba(255, 255, 255, 0);
+				border: none;
+			}
+			#txtStaticCycle {
+				text-align: center;
+				line-height: 22px;
+				border: none;
+				box-shadow: none;
+				font-size: 1.2em;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="k-nav">
+			<span class="left" style="visibility: hidden;"><a href="#"><i class="glyphicon glyphicon-menu-left"></i>返回</a></span>
+			<span class="text">哗!收账</span>
+		</div>
+		<div class="container-fluid">
+			<div class="input-group">
+				<span class="input-group-addon glyphicon glyphicon-menu-left"></span>
+				<input id="txtStaticCycle" type="text" class="form-control" data-start="" data-end="" data-curdate="" value="2015年4月" />
+				<span class="input-group-addon glyphicon glyphicon-menu-right"></span>
+			</div>
+			<!--<div class="btn-group">
+					<button class="btn btn-warning" data-calendar-view="year">Year</button>
+					<button class="btn btn-warning active" data-calendar-view="month">Month</button>
+					<button class="btn btn-warning" data-calendar-view="week">Week</button>
+					<button class="btn btn-warning" data-calendar-view="day">Day</button>
+				</div>-->
+			<div id="calendar"></div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li><a href="#" data-target="index.html" class="glyphicon glyphicon-home"><i>主页</i></a>
+				</li>
+				<li><a href="#" data-target="list.html" class="glyphicon glyphicon-list"><i>列表</i></a>
+				</li>
+				<li class="selected"><a href="#" data-target="calendar.html" class="glyphicon glyphicon-calendar"><i>日历</i></a>
+				</li>
+				<li><a href="#" data-target="settings.html" class="glyphicon glyphicon-cog"><i>设置</i></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
+	<script src="js/fastclick/fastclick.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap-calendar/components/underscore/underscore-min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap-calendar/components/jstimezonedetect/jstz.min.js"></script>
+	<script src="js/global.js"></script>
+	<script type="text/javascript" src="js/bootstrap/bootstrap-calendar/js/language/zh-CN.js"></script>
+	<script src="js/lib/cnDate.js"></script>
+	<script src="js/bootstrap/bootstrap-calendar/js/calendar.js"></script>
+
+	<script>
+		$(function() {
+			var options = {
+				events_source: 'js/bootstrap/bootstrap-calendar/events.json.php',
+				view: 'month',
+				tmpl_path: 'js/bootstrap/bootstrap-calendar/tmpls/',
+				tmpl_cache: false,
+				language: 'zh-CN',
+				first_day: 1,
+				day: '2015-04-13',
+				classes: {
+					months: {
+						general: 'label'
+					}
+				}
+			};
+			var calendar = $('#calendar').calendar(options);
+		});
+	</script>
+
+</html>

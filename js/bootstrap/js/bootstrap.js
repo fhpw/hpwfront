@@ -1715,6 +1715,7 @@ if (typeof jQuery === 'undefined') {
 
   var Popover = function (element, options) {
     this.init('popover', element, options)
+    return this;
   }
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
