@@ -188,6 +188,7 @@
 
 	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
 	<script src="js/fastclick/fastclick.js"></script>
+	<script src="js/appDefined.js"></script>
 	<script src="js/lib/k-utils-fn.js"></script>
 	<script src="js/lib/k-utils-plug.js"></script>
 	<script src="js/global.js"></script>
@@ -203,6 +204,11 @@
 				htmls.push('<li>' + tpl.render(data[i]) + '</li>');
 			}
 			$('.list-form ul').empty().html(htmls.join(''));
+			
+			$('.glyphicon-earphone ~ em').on('click',function(e){
+				var tar = $(e.target),phone=tar.html();
+				APP.dialIphone(phone);
+			});
 		});
 
 		function getUserList() {

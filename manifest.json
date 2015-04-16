@@ -139,9 +139,9 @@
                     "prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
                     "auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
                     "iphone": {
-                        "normal": "E:\\WebAPPWorkSpace\\hpwfront\\img\\logo.png", /*iPhone3/3GS程序图标，分辨率：57x57*/
+                        "normal": "E:\\WebAPPWorkSpace\\fhpw\\hpwfront\\img\\logo.png", /*iPhone3/3GS程序图标，分辨率：57x57*/
                         "retina": "", /*iPhone4程序图标，分辨率：114x114*/
-                        "retina7": "E:\\WebAPPWorkSpace\\hpwfront\\img\\logo.png", /*iPhone4S/5/6程序图标，分辨率：120x120*/
+                        "retina7": "E:\\WebAPPWorkSpace\\fhpw\\hpwfront\\img\\logo.png", /*iPhone4S/5/6程序图标，分辨率：120x120*/
 			"retina8": "", /*iPhone6 Plus程序图标，分辨率：180x180*/
                         "spotlight-normal": "", /*iPhone3/3GS Spotlight搜索程序图标，分辨率：29x29*/
                         "spotlight-retina": "", /*iPhone4 Spotlight搜索程序图标，分辨率：58x58*/

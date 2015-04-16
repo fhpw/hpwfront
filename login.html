@@ -114,8 +114,10 @@
 		</div>
 	</body>
 	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
+	<script src="js/fastclick/fastclick.js"></script>
 	<script>
 		$(function() {
+			FastClick&&FastClick.attach(document.body);//调用fastClick加快手机端的click事件时间
 			var $btnLogin = $('#btnLogin');
 			$('#txtIphone').focus(); //初始化的时候将焦点定位到手机号输入界面
 			//验证手机号码已经输入、密码已经输入就将按钮能点击

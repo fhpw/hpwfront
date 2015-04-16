@@ -147,13 +147,20 @@ li:active {
 	font-size:0.8em;
 	color:#838383;
 }
+.iback a{
+	display: inherit;
+	text-decoration: none;
+}
+.iback a:hover{
+	text-decoration: none;
+}
 		</style>
 	</head>
 	<body onselectstart="return false;">
 		<header>
-			<div class="nvbt iback" onclick="back(true);"></div>
+			<div class="nvbt iback"><a href="../settings.html">&nbsp;</a></div>
 			<div class="nvtt">H5+ API</div>
-			<div class="nvbt iabout" onclick="clicked('about.html);"></div>
+			<div class="nvbt iabout" onclick="clicked('about.html');"></div>
 		</header>
 		<div id="content" class="content">
 		<ul id="plist" style="list-style:none;margin:0;padding:0;text-align:left;">
