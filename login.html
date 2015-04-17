@@ -71,6 +71,7 @@
 				border-bottom: 1px solid rgba(209, 223, 229, 1);
 				text-indent: 0.5em;
 				color: rgba(0, 0, 0, 1);
+				border-radius: 0px
 			}
 			.noborder > span {
 				border-bottom-width: 0px;
@@ -109,7 +110,7 @@
 					<input class="txt-password" type="password" id="txtPassword" placeholder="密码" />
 				</div>
 			</div>
-			<button type="button" class="btn btn-info btn-block btn-opacity btn-lg" id="btnLogin">登录</button>
+			<button type="button" class="btn btn-info btn-block btn-primary btn-lg" id="btnLogin">登录</button>
 			<span class="new-register"><a href="newRegister.html">新用户注册</a></span>
 		</div>
 	</body>
@@ -117,7 +118,13 @@
 	<script src="js/fastclick/fastclick.js"></script>
 	<script>
 		$(function() {
-			FastClick&&FastClick.attach(document.body);//调用fastClick加快手机端的click事件时间
+			FastClick && FastClick.attach(document.body); //调用fastClick加快手机端的click事件时间
+			if (window.localStorage['user-id']) {
+				$('#txtIphone').val(window.localStorage['user-id']);
+				$('#txtPassword').val(window.localStorage['password']);
+				checkLogin();
+				return;
+			}
 			var $btnLogin = $('#btnLogin');
 			$('#txtIphone').focus(); //初始化的时候将焦点定位到手机号输入界面
 			//验证手机号码已经输入、密码已经输入就将按钮能点击
@@ -125,7 +132,7 @@
 				//校验用户名密码
 				checkLogin();
 			});
-			$(document).on('keydown', function(e) {
+			/*$(document).on('keydown', function(e) {
 				if (e.keyCode == 13) { //校验回车事件
 					checkLogin();
 				}
@@ -135,13 +142,15 @@
 					$btnLogin.removeAttr('disabled');
 					$btnLogin.removeClass('btn-info btn-opacity').addClass('btn-primary');
 				}
-			});
+			});*/
 		});
 
 		function checkLogin() {
 			var iphone = $('#txtIphone').val(),
 				pw = $('#txtPassword').val();
 			if (iphone && iphone == '18600646863' && pw && pw == 123456) {
+				window.localStorage['user-id'] = iphone;
+				window.localStorage['password'] = pw;
 				window.location.href = 'index.html';
 			}
 		}

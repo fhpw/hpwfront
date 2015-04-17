@@ -207,7 +207,7 @@
 			
 			$('.glyphicon-earphone ~ em').on('click',function(e){
 				var tar = $(e.target),phone=tar.html();
-				APP.dialIphone(phone);
+				APP.showActionSheet(phone);
 			});
 		});
 
