@@ -96,25 +96,28 @@
 
 	<body>
 		<div class="background login">
-			<div class="logo-icon">
-				<img src="img/logo.png" class="logo" />
-			</div>
-			<div class="input-group text-center">
-				<div class="input">
-					<span>+86</span>
-					<input class="txt-iphone" type="tel" id="txtIphone" placeholder="手机号" />
-				</div>
-				<div class="input noborder">
-					<span>密码</span>
-					<input class="txt-password" type="password" id="txtPassword" placeholder="密码" />
-				</div>
-			</div>
-			<button type="button" class="btn btn-info btn-block btn-opacity btn-lg" id="btnLogin">登录</button>
+            <div class="logo-icon">
+                <img src="img/logo.png" class="logo" />
+            </div>
+            <div class="input-group text-center">
+                <div class="input">
+                    <span>+86</span>
+                    <input class="txt-iphone" type="tel" id="txtIphone" placeholder="手机号" />
+                </div>
+                <div class="input noborder">
+                    <span>密码</span>
+                    <input class="txt-password" type="password" id="txtPassword" placeholder="密码" />
+                </div>
+            </div>
+            <button type="button" class="btn btn-info btn-block btn-opacity btn-lg" id="btnLogin">登录</button>
 			<span class="new-register"><a href="newRegister.html">新用户注册</a></span>
 		</div>
 	</body>
 	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
 	<script src="js/fastclick/fastclick.js"></script>
+    <script src="js/base64.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/user.js"></script>
 	<script>
 		$(function() {
 			FastClick&&FastClick.attach(document.body);//调用fastClick加快手机端的click事件时间
@@ -139,11 +142,12 @@
 		});
 
 		function checkLogin() {
-			var iphone = $('#txtIphone').val(),
-				pw = $('#txtPassword').val();
-			if (iphone && iphone == '18600646863' && pw && pw == 123456) {
-				window.location.href = 'index.html';
-			}
+			var phone = $('#txtIphone').val(),
+				pwd = $('#txtPassword').val();
+            userModule.login(phone, pwd);
+//			if (iphone && iphone == '18600646863' && pw && pw == 123456) {
+//				window.location.href = 'index.html';
+//			}
 		}
 	</script>
 
