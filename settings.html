@@ -212,11 +212,12 @@
 	</body>
 	<script src="js/jQuery/jquery-1.11.2.min.js"></script>
 	<script src="js/fastclick/fastclick.js"></script>
+	<script src="js/appDefined.js"></script>
 	<script src="js/global.js"></script>
 	<script>
 		$(function() {
 			$('.user-info').on('click', function(e) {
-				alert('程序开发中');
+				APP.alert('程序开发中','友情提示');
 			});
 			$('.settings label').on('click', function(e) {
 				var tar = $(e.target),
