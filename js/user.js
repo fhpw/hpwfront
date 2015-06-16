@@ -13,12 +13,14 @@ var userModule = (function() {
             console.log(result);
         },
         //页面初始化
-        login: function() {
-            $("#login-form").on('submit', function(){
-                var postData = globalModule.getJsonDataFromSeriaArr($(this).serializeArray());
-                globalModule.jsonp('user', 'login', postData, userModule.afterLogin);
-                return false;
-            });
+        login: function(name, pwd) {
+            globalModule.jsonp('user', 'login', {'User[name]':name, 'User[password]':pwd}, userModule.afterLogin);
+
+//            $("#login-form").on('submit', function(){
+//                var postData = globalModule.getJsonDataFromSeriaArr($(this).serializeArray());
+//                globalModule.jsonp('user', 'login', postData, userModule.afterLogin);
+//                return false;
+//            });
         },
         afterLogin: function(result) {
             if (result.error == 0) {
@@ -26,7 +28,9 @@ var userModule = (function() {
                 CLIENTSTATUS.login = true;
                 CLIENTSTATUS.uid = user.user_id;
                 CLIENTSTATUS.name = user.name;
-                window.location.href = "/";
+                window.location.href = "index.html";
+            } else {
+
             }
         },
     }
